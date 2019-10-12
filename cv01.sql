@@ -63,11 +63,11 @@ ORDER BY special_features         --musime neco specifikovat aby se to vypsalo a
 SELECT *
 FROM film
 WHERE
-	rental_duration < 4 OR rating = 'PG'
-	AND
-	NOT (rental_duration < 4 OR rating = 'PG')
-	--rental_duration < 4 AND rating != 'PG' OR
-	--rental_duration >= 4 AND rating = 'PG'
+	rental_duration < 4 AND rating != 'PG' OR
+	rental_duration >= 4 AND rating = 'PG'
+	-- rental_duration < 4 OR rating = 'PG'
+	-- AND
+	-- NOT (rental_duration < 4 OR rating = 'PG')	--nefunguje jak ma, spatne jsem to opsal
 
 --12
 SELECT *
@@ -89,8 +89,9 @@ FROM film
 WHERE LEN(title) != 20
 
 --16
-SELECT rental_id, DATEDIFF(minute, rental_date, return_date) AS minuty
+SELECT rental_id, DATEDIFF(MINUTE, rental_date, return_date) AS minuty
 FROM rental
+WHERE return_date IS NOT NULL
 
 --17
 SELECT customer_id, (first_name + ' ' + last_name) AS full_name
@@ -102,12 +103,12 @@ SELECT address, COALESCE(postal_code, '(prazdne)') AS PSC
 FROM address
 
 --19
-SELECT rental_id, CAST(rental_date AS VARCHAR) + ' - ' + CAST(return_date AS VARCHAR) AS interval
+SELECT rental_id, (CAST(rental_date AS VARCHAR) + ' - ' + CAST(return_date AS VARCHAR)) AS interval
 FROM rental
 WHERE return_date IS NOT NULL
 
 --20
-SELECT rental_id, CAST(rental_date AS VARCHAR) + COALESCE(' - ' + CAST(return_date AS VARCHAR), ' ') AS interval
+SELECT rental_id, (CAST(rental_date AS VARCHAR) + ' - ' + COALESCE(CAST(return_date AS VARCHAR), '')) AS interval
 FROM rental
 
 --21
@@ -126,7 +127,11 @@ SELECT
 FROM address
 
 --24
-SELECT MIN(length) AS nejkratsi, MAX(length) AS nejdelsi, AVG(CAST(length AS FLOAT)) AS prumer
+SELECT
+	MIN(length) AS min_length,
+	MAX(length) AS max_length,
+	AVG(CAST(length AS FLOAT)) AS avg_length,
+	(SUM(length) / COUNT(length)) AS test
 FROM film
 
 --25
@@ -136,8 +141,4 @@ WHERE YEAR(payment_date) = 2005
 
 --26
 SELECT SUM(LEN(title)) AS pocet_znaku
-FROM film
-
-random
-SELECT SUM(length)
 FROM film
