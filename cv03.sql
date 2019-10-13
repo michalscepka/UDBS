@@ -3,7 +3,7 @@ SELECT rating, COUNT(*) AS pocet
 FROM film
 GROUP BY rating
 
-2
+--2
 
 
 --3
@@ -12,7 +12,7 @@ FROM payment
 GROUP BY customer_id
 ORDER BY SUM(amount)
 
-4
+--4
 
 --5
 SELECT YEAR(payment_date) AS rok, MONTH(payment_date) AS mesic, SUM(amount) AS soucet
@@ -26,9 +26,9 @@ FROM inventory
 GROUP BY store_id
 HAVING COUNT(*) > 2300	--HAVING se pouziva na seskupene zaznamy, protoze WHERE se vykona driv nez seskupeni
 
-7
+--7
 
-8
+--8
 
 --9
 SELECT rating, SUM(length) AS celkova_delka		--6.
@@ -53,9 +53,9 @@ SELECT language.language_id, language.name, COUNT(film.film_id) AS cnt
 FROM language LEFT JOIN film ON language.language_id = film.language_id
 GROUP BY language.language_id, language.name
 
-13
+--13
 
-14
+--14
 
 --15
 SELECT actor.first_name, actor.last_name
@@ -76,9 +76,9 @@ FROM
 	LEFT JOIN payment ON rental.rental_id = payment.rental_id
 GROUP BY customer.customer_id, first_name, last_name
 
-17
+--17
 
-18
+--18
 
 --19
 SELECT
@@ -90,11 +90,11 @@ FROM
 	LEFT JOIN film_category ON film_actor.film_id = film_category.film_id
 GROUP BY actor.actor_id, actor.first_name, actor.last_name
 
-20
+--20
 
-21
+--21
 
-22
+--22
 
 --23
 SELECT language.name, COUNT(film.film_id) AS pocet
@@ -104,7 +104,7 @@ FROM
 	AND film.length > 350
 GROUP BY language.name
 
-25
+--25
 SELECT *
 FROM 
 	
