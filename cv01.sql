@@ -58,7 +58,6 @@ FROM film
 WHERE replacement_cost BETWEEN 14 AND 16
 ORDER BY special_features         --musime neco specifikovat aby se to vypsalo abecedne
 
-
 --11
 SELECT *
 FROM film
@@ -123,7 +122,7 @@ FROM film
 SELECT
 	COUNT(*) AS pocet_adres,
 	COUNT(postal_code) AS pocet_s_psc,
-	COUNT(DISTINCT postal_code) AS pocet_psc	--COUNT preskakuji NULL hodnoty
+	COUNT(DISTINCT postal_code) AS pocet_psc	--COUNT preskakuje NULL hodnoty
 FROM address
 
 --24
