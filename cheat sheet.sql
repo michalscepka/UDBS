@@ -51,6 +51,7 @@ SELECT COALESCE(postal_code, '(prazdne)') AS PSC
 
 --CAST() pretypovani
 SELECT (CAST(rental_date AS VARCHAR) + ' - ' + CAST(return_date AS VARCHAR)) AS interval
+AVG(CAST(film.length AS FLOAT))
 
 --CAST() + COALESCE()
 SELECT rental_id, (CAST(rental_date AS VARCHAR) + ' - ' + COALESCE(CAST(return_date AS VARCHAR), '')) AS interval
@@ -83,3 +84,34 @@ FROM
 --nahradi vsechny jazyky ktere nezacinaji na 'I' hodnotami NULL
 SELECT film.title, language.name
 FROM film LEFT JOIN language ON film.language_id = language.language_id AND language.name LIKE 'I%'
+
+--GROUP BY 	viz cv03.sql
+SELECT rating, COUNT(*) AS pocet
+FROM film
+GROUP BY rating
+
+SELECT YEAR(payment_date) AS rok, MONTH(payment_date) AS mesic, SUM(amount) AS soucet
+FROM payment
+GROUP BY YEAR(payment_date), MONTH(payment_date)	--GROUP BY nezna aliasy
+ORDER BY rok, mesic
+
+--HAVING se pouziva na seskupene zaznamy, protoze WHERE se vykona driv nez seskupeni
+SELECT store_id, COUNT(*) AS pocet
+FROM inventory
+GROUP BY store_id
+HAVING COUNT(*) > 2300
+
+--Vypište ID jazyků, pro které je nejkratší film delší než 46 minut.
+
+--Při sestavování takového dotazu je vhodné začít jednodušší variantou, kdy si pro kazdé
+--language id vypíšeme nejkratší délku filmu. Tzn. za čneme dotazem:
+SELECT language_id, MIN(length)
+FROM film
+GROUP BY language_id
+--Teprve až vidíme, že takovž dotaz funguje, přesuneme MIN(length) do klauzule HAVING,
+--tzn. vysledkem je dotaz:
+SELECT language_id
+FROM film
+GROUP BY language_id
+HAVING MIN(length) > 46
+
