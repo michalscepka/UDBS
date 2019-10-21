@@ -25,11 +25,36 @@ WHERE length BETWEEN 80 AND 90
 SELECT DISTINCT special_features
 
 --XOR
+	--Vypište všechny údaje filmů, jejichž standardní doba výpujčky je menší než 4 dny, nebo
+	--jsou klasifikovány jako PG. Nesmí však splňovat obě podmínky zároveň.
 SELECT *
 FROM film
 WHERE
 	rental_duration < 4 AND rating != 'PG' OR
 	rental_duration >= 4 AND rating = 'PG'
+
+	--Vypište ID a názvy filmů, ve kterých hrál herec s ID = 1 nebo herec s ID = 10, ale ne oba dohromady.
+SELECT film_id, title
+FROM film
+WHERE
+	film_id IN (
+		SELECT film_id
+		FROM film_actor
+		WHERE actor_id = 1 OR actor_id = 10
+	)
+	AND NOT (
+		film_id IN (
+			SELECT film_id
+			FROM film_actor
+			WHERE actor_id = 1
+		)
+		AND
+		film_id IN (
+			SELECT film_id
+			FROM film_actor
+			WHERE actor_id = 10
+		)
+	)
 
 --NULL
 WHERE postal_code IS NOT NULL
@@ -81,7 +106,7 @@ FROM
 	payment
 	LEFT JOIN rental ON payment.rental_id = rental.rental_id
 
---nahradi vsechny jazyky ktere nezacinaji na 'I' hodnotami NULL
+	--nahradi vsechny jazyky ktere nezacinaji na 'I' hodnotami NULL
 SELECT film.title, language.name
 FROM film LEFT JOIN language ON film.language_id = language.language_id AND language.name LIKE 'I%'
 
@@ -103,15 +128,42 @@ HAVING COUNT(*) > 2300
 
 --Vypište ID jazyků, pro které je nejkratší film delší než 46 minut.
 
---Při sestavování takového dotazu je vhodné začít jednodušší variantou, kdy si pro kazdé
---language id vypíšeme nejkratší délku filmu. Tzn. za čneme dotazem:
+	--Při sestavování takového dotazu je vhodné začít jednodušší variantou, kdy si pro kazdé
+	--language id vypíšeme nejkratší délku filmu. Tzn. za čneme dotazem:
 SELECT language_id, MIN(length)
 FROM film
 GROUP BY language_id
---Teprve až vidíme, že takovž dotaz funguje, přesuneme MIN(length) do klauzule HAVING,
---tzn. vysledkem je dotaz:
+	--Teprve až vidíme, že takový dotaz funguje, přesuneme MIN(length) do klauzule HAVING,
+	--tzn. vysledkem je dotaz:
 SELECT language_id
 FROM film
 GROUP BY language_id
 HAVING MIN(length) > 46
 
+--IN
+SELECT first_name, last_name
+FROM customer
+WHERE customer.last_name IN (
+	SELECT last_name
+	FROM actor
+)
+
+--EXISTS
+SELECT first_name, last_name
+FROM customer
+WHERE EXISTS (
+	SELECT *
+	FROM actor
+	WHERE actor.last_name = customer.last_name
+)
+
+--ALL
+SELECT title
+FROM film
+WHERE length < ALL (
+	SELECT film.length
+	FROM actor
+		JOIN film_actor ON actor.actor_id = film_actor.actor_id
+		JOIN film ON film_actor.film_id = film.film_id
+	WHERE actor.first_name = 'BURT' AND actor.last_name = 'POSEY'
+)
