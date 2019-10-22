@@ -1,0 +1,643 @@
+------------------------------------------------------- Ctvrtek 10:45
+-- 1.A
+-- Vypište produkty, které byly vždy reklamovány muži, kteøí je koupili.
+-- Jinými slovy, vypište produkty, které, když koupil muž, tak je i reklamoval.
+-- Nevypisujte produkty, které nikdy muž nekoupil.
+SELECT distinct p.pID, p.oznaceni
+FROM test.Zakaznik z
+join test.Nakup n on z.zID = n.zID
+JOIN test.Produkt p ON n.pID = p.pID	
+WHERE z.pohlavi = 'muz' and NOT EXISTS
+(
+	SELECT *
+	FROM test.Nakup n 
+	JOIN test.Zakaznik z ON n.zID = z.zID	
+	WHERE z.pohlavi = 'muz' AND n.pID = p.pID and not exists
+	(
+		select *
+		from test.Reklamace r 
+		where n.nID = r.nID
+	)
+)
+
+--{5,7,10}
+--SELECT p.pID, r.nID
+--FROM test.Zakaznik z
+--join test.Nakup n on z.zID = n.zID
+--join test.Produkt p on n.pID = p.pID and z.pohlavi = 'muz'
+--left join test.Reklamace r on r.nID = n.nID
+--order by p.pID
+
+
+-- 1.B
+-- Vypište produkty, které byly vždy reklamovány ženami, které je koupili.
+-- Jinými slovy, vypište produkty, které, když koupila žena, tak je i reklamovala.
+-- Nevypisujte produkty, které nikdy žena nekoupil.
+SELECT distinct p.pID, p.oznaceni
+FROM test.Zakaznik z
+join test.Nakup n on z.zID = n.zID
+JOIN test.Produkt p ON n.pID = p.pID	
+WHERE z.pohlavi = 'zena' and NOT EXISTS
+(
+	SELECT *
+	FROM test.Nakup n 
+	JOIN test.Zakaznik z ON n.zID = z.zID	
+	WHERE z.pohlavi = 'zena' AND n.pID = p.pID and not exists
+	(
+		select *
+		from test.Reklamace r 
+		where n.nID = r.nID
+	)
+)
+
+-- 2.A
+-- Pro každého zákazníka vypište poèet jeho nákupù, kde byla cena pod prùmìrnou cenou daného produktu.
+SELECT z.zID, z.jmeno, COUNT(n1.pID) FROM test.Zakaznik z
+LEFT JOIN test.Nakup n1 ON n1.zID=z.zID
+	and n1.cena < 
+	(
+		SELECT AVG(cena) 
+		FROM test.Nakup n2 
+		WHERE n1.pID = n2.pID
+	)
+GROUP BY z.zID, z.jmeno
+
+
+-- 2.B
+-- Pro každý produkt vypište poèet jeho nákupù u kterých byla cena pod prùmìrnou cenou daného produktu.
+SELECT p.pID, p.oznaceni, COUNT(n1.zID) 
+FROM test.Produkt p
+LEFT JOIN test.Nakup n1 ON n1.pID=p.pID
+	and n1.cena < 
+		(
+			SELECT AVG(cena) 
+			FROM test.Nakup n2 
+			WHERE n1.pID = n2.pID
+		)
+GROUP BY p.pID, p.oznaceni
+
+
+-- 3.A
+-- Vypište jméno nejvíce nakupujícího zákazníka ženského pohlaví. 
+-- Jinými slovy jde nám o ženu, která má mezi ženami nejvyšší celkový poèet nakoupených kusù zboží.
+SELECT z.jmeno, SUM(n.kusu) 
+FROM test.Zakaznik z
+JOIN test.Nakup n ON n.zID = z.zID
+where z.pohlavi='zena'
+group by z.jmeno, z.zID
+having SUM(n.kusu) >= all 
+(
+	SELECT SUM(n2.kusu) FROM test.Zakaznik z2
+    JOIN test.Nakup n2 ON n2.zID = z2.zID
+    where z2.pohlavi='zena'
+    group by z2.zID
+)
+
+-- 3.B
+-- Vypište jméno nejvíce nakupujícího zákazníka, který si nechává zasílat reklamu. 
+-- Jinými slovy jde nám o zákazníka, který má nejvyšší celkový poèet nakoupených kusù zboží mezi zákazníky, kteøí si nechávají zasílat reklamu.
+SELECT z.jmeno, SUM(n.kusu) 
+FROM test.Zakaznik z
+JOIN test.Nakup n ON n.zID = z.zID
+where z.posilat_reklamu=1
+group by z.jmeno, z.zID
+having SUM(n.kusu) >= all (
+	SELECT SUM(n2.kusu) FROM test.Zakaznik z2
+    JOIN test.Nakup n2 ON n2.zID = z2.zID
+    where z2.posilat_reklamu=1
+    group by z2.zID
+)
+
+
+
+------------------------------------------------------------ Ctvrtek 9:00
+-- 1.A
+-- U každého zákazníka, který má alespoò jeden nákup, vypište kolik reklamací má prùmìrnì na jeden nákup. 
+-- Pro korektní zobrazení výsledku je potøeba poèty nákupù pøed poèítáním prùmìru pøetypovat na float s pomocí CAST(count(*) as FLOAT).
+-- Vypište (zID, jmeno, prùmìr)
+select zID, jmeno, avg(reklamaci)
+from
+(
+	select n.nID, n.zID, z.jmeno, cast(count(r.nID) as float) reklamaci
+	from test.Nakup n
+	join test.Zakaznik z on n.zID = z.zID
+	left join test.Reklamace r on n.nID = r.nID
+	group by n.nID, n.zID, z.jmeno
+) zak_rekl
+group by zID, jmeno
+order by zID
+
+-- 1.B
+-- U každého produktu vypište kolik reklamací má prùmìrnì na jeden nákup. Setøiïte podle pID.
+-- Pro korektní zobrazení výsledku je potøeba poèty nákupù pøetypovat s pomocí CAST(hodnota as FLOAT).
+-- Vypište (pID, oznaceni, prùmìr)
+select pID, oznaceni, avg(reklamaci)
+from
+(
+	select n.nID, n.pID, p.oznaceni, cast(count(r.nID) as float) reklamaci
+	from test.Nakup n
+	join test.Produkt p on n.pID = p.pID
+	left join test.Reklamace r on n.nID = r.nID
+	group by n.nID, n.pID, p.oznaceni
+) zak_rekl
+group by pID, oznaceni
+order by pID
+
+-- 2.A
+-- Vypištì zID a jméno zákazníkù, kteøí nakoupili nejvìtší poèet kusù jednoho zboží.
+select distinct z.zID, z.jmeno, sum(n.kusu)
+from test.nakup n
+join test.Zakaznik z on z.zID = n.zID
+group by z.zID, z.jmeno, n.pID
+having sum(n.kusu) >= all(
+	select sum(n.kusu)
+	from test.nakup n
+	join test.Zakaznik z on z.zID = n.zID
+	group by n.zID, n.pID
+)
+
+--select n.zID, n.pID, sum(n.kusu)
+--from test.nakup n
+--group by n.zID, n.pID
+
+-- 2.B
+-- Vypište pID a oznaèení produktù, které byly koupeny jedním zákazníkem v nejvíce kusech
+select distinct p.pID, p.oznaceni, sum(n.kusu)
+from test.nakup n
+join test.Produkt p on n.pID = p.pID
+group by p.pID, p.oznaceni, n.zID
+having sum(n.kusu) >= all(
+	select sum(n.kusu)
+	from test.nakup n
+	join test.Produkt p on n.pID = p.pID
+	group by p.pID, n.zID
+)
+
+-- 3.A
+-- Vypište mìsíce ve kterých nikdy nebyl prodán výrobek znaèky `Whirpool'.
+-- Množinu všech mìsícù je možné získat s pomocí funkce month(test.nakup.den) a tabulky test.nakup.
+select distinct month(n.den) mesic
+from test.nakup n
+except
+select distinct month(n2.den) mesic
+from test.nakup n2
+join test.produkt p on p.pID = n2.pID
+where p.znacka = 'Whirpool'
+
+-- 3.B
+-- Vypište mìsíce ve kterých nikdy nebyl prodán výrobek znaèky `Green line'.
+-- Množinu všech mìsícù je možné získat s pomocí funkce month(test.nakup.den) a tabulky test.nakup.
+select distinct month(n.den) mesic
+from test.nakup n
+except
+select distinct month(n2.den) mesic
+from test.nakup n2
+join test.produkt p on p.pID = n2.pID
+where p.znacka = 'Green line'
+
+
+------------------------------------------------------------ Ctvrtek 7:15
+-- 1.A 
+-- Vypište všechny produkty, které nebyly v žádném roce koupeny dvakrát.
+select *
+from test.Produkt p
+where 2 != all
+(
+	select count(*)
+	from test.nakup n
+	where n.pID = p.pID
+	group by year(n.den)
+)
+
+select *
+from test.Produkt p
+where NOT EXISTS
+(
+    select count(*)
+    from test.nakup n
+    where n.pID = p.pID
+    group by year(n.den)
+    having count(*) = 2
+) 
+
+select *
+from test.Produkt p
+where p.pID NOT IN
+(
+    select n.pID
+    from test.nakup n
+    where n.pID = p.pID
+    group by year(n.den), n.pID
+    having count(*) = 2
+)
+
+--select p.pID, YEAR(n.den), count(*)
+--from test.Produkt p
+--join test.Nakup n on p.pID = n.pID
+--group by p.pID, YEAR(n.den)
+--order by p.pID
+
+-- 1.B
+-- Vypište všechny zákazníky, kteøí v žádném roce neprovedli dva nákupy.
+select *
+from test.Zakaznik z
+where 2 != all
+(
+	select count(*)
+	from test.nakup n
+	where n.zID = z.zID
+	group by year(n.den)
+)
+
+select *
+from test.Zakaznik z
+where NOT EXISTS
+(
+    select count(*)
+    from test.nakup n
+    where n.zID = z.zID
+    group by year(n.den)
+    having count(*) = 2
+)
+
+select *
+from test.Zakaznik z
+where z.zID NOT IN
+(
+    select z.zID
+    from test.nakup n
+    where n.zID = z.zID
+    group by year(n.den)
+    having count(*) = 2
+) 
+
+--select z.zID, YEAR(n.den), count(*)
+--from test.Zakaznik z
+--join test.Nakup n on z.zID = n.zID
+--group by z.zID, YEAR(n.den)
+--order by z.zID
+
+-- 2.A
+-- Vypište všechny produkty, které byly reklamovány za cenu vyšší než dva tisíce korun maximálnì jednou. Vypište pID, oznaèení a poèet reklamací.
+-- Eliminujte produkty, které nebyly nikdy koupeny
+SELECT p.pID, p.oznaceni, count(r.cena)
+FROM test.Produkt p 
+join test.Nakup n on n.pID = p.pID
+left join test.Reklamace r on r.nID = n.nID and r.cena > 2000
+group by p.pID, p.oznaceni
+having count(r.cena) < 2
+
+--SELECT p.pID, r.cena
+--FROM test.Zakaznik z
+--join test.Nakup n on z.zID = n.zID
+--join test.Produkt p on n.pID = p.pID
+--left join test.Reklamace r on r.nID = n.nID
+--where r.cena < 2000 or r.cena is null
+--order by p.pID
+
+-- 2.B
+-- Vypište všechny produkty, které u niž délka reklamace pøesáhla 10 dní maximálnì jednou. Vypište pID, oznaèení a poèet reklamací.
+-- Eliminujte produkty, které nebyly nikdy koupeny
+SELECT p.pID, p.oznaceni, count(r.cena)
+FROM test.Produkt p 
+join test.Nakup n on n.pID = p.pID
+left join test.Reklamace r on r.nID = n.nID and r.delka > 10
+group by p.pID, p.oznaceni
+having count(r.cena) < 2
+
+-- 3.A
+-- U každého zákazníka vypište: (1) kolik rùzných produktù reklamoval, (2) v kolika rùzných letech nakupoval zboží. 
+-- Pro druhou hodnotu použijte funkci YEAR(test.Nakup.den), která vrátí rok nákupu.
+select z.zID, z.jmeno,
+(
+	select count(distinct pID)
+	from test.Nakup n
+	join test.Reklamace r on n.nID = r.nID
+	where n.zID = z.zID
+),
+(
+	select count(distinct YEAR(n.den))
+	from test.Nakup n	
+	where n.zID = z.zID
+)
+from test.Zakaznik z
+
+-- 3.B
+-- U každého produktu vypište: (1) kolik rùzných zákazníkù jej reklamovalo, (2) v kolika rùzných letech bylo toto zboží nakoupeno. 
+-- Pro druhou hodnotu použijte funkci YEAR(test.Nakup.den), která vrátí rok nákupu.
+select p.pID, p.oznaceni,
+(
+	select count(distinct zID)
+	from test.Nakup n
+	join test.Reklamace r on n.nID = r.nID
+	where n.pID = p.pID
+),
+(
+	select count(distinct YEAR(n.den))
+	from test.Nakup n	
+	where n.pID = p.pID
+)
+from test.Produkt p
+
+------------------------------------------------------------ Streda 12:30
+-- 1.A 
+-- Vypište produkty (pID, oznaceni, znacka), které v roce 2014 kupovali výhradnì muži, nebo výhradnì ženy. 
+select distinct n1.pID, p.oznaceni, p.znacka, 'pouze muzi'
+from test.Nakup n1
+join test.Zakaznik z1 on z1.zID = n1.zID
+join test.Produkt p on n1.pid = p.pID
+where z1.pohlavi = 'muz' and YEAR(n1.den) = 2014 and not exists
+(
+	select *
+	from test.Nakup n
+	join test.Zakaznik z on n.zID = z.zID and YEAR(n.den) = 2014
+	where n.pid = n1.pID and z.pohlavi = 'zena'
+)
+union
+select distinct n1.pID, p.oznaceni, p.znacka, 'pouze zeny'
+from test.Nakup n1
+join test.Zakaznik z1 on z1.zID = n1.zID
+join test.Produkt p on n1.pid = p.pID
+where z1.pohlavi = 'zena' and YEAR(n1.den) = 2014 and not exists
+(
+	select *
+	from test.Nakup n
+	join test.Zakaznik z on n.zID = z.zID and YEAR(n.den) = 2014
+	where n.pid = n1.pID and z.pohlavi = 'muz'
+)
+
+
+
+SELECT test.Produkt.pID, oznaceni, znacka
+FROM
+	test.Produkt
+	JOIN test.Nakup ON test.Produkt.pID = test.Nakup.pID
+	JOIN test.Zakaznik ON test.Nakup.zID = test.Zakaznik.zID
+WHERE YEAR(den) = 2014
+GROUP BY test.Produkt.pID, oznaceni, znacka
+HAVING COUNT(DISTINCT pohlavi) = 1
+
+--select distinct n1.pID, z1.pohlavi
+--from test.Nakup n1
+--join test.Zakaznik z1 on z1.zID = n1.zID
+--where YEAR(n1.den) = 2014
+
+
+
+-- 1.B 
+-- Vypište produkty, které v za cenu nizší než 1000,- kupovali výhradnì muži, nebo výhradnì ženy
+select distinct n1.pID, p.oznaceni, p.znacka, 'pouze muzi'
+from test.Nakup n1
+join test.Zakaznik z1 on z1.zID = n1.zID
+join test.Produkt p on n1.pid = p.pID
+where z1.pohlavi = 'muz' and n1.cena < 1000 and not exists
+(
+	select *
+	from test.Nakup n
+	join test.Zakaznik z on n.zID = z.zID and n.cena < 1000
+	where n.pid = n1.pID and z.pohlavi = 'zena'
+)
+union
+select distinct n1.pID, p.oznaceni, p.znacka, 'pouze zeny'
+from test.Nakup n1
+join test.Zakaznik z1 on z1.zID = n1.zID
+join test.Produkt p on n1.pid = p.pID
+where z1.pohlavi = 'zena' and n1.cena < 1000 and not exists
+(
+	select *
+	from test.Nakup n
+	join test.Zakaznik z on n.zID = z.zID and n.cena < 1000
+	where n.pid = n1.pID and z.pohlavi = 'muz'
+)
+
+
+SELECT test.Produkt.pID, oznaceni, znacka
+FROM
+	test.Produkt
+	JOIN test.Nakup ON test.Produkt.pID = test.Nakup.pID
+	JOIN test.Zakaznik ON test.Nakup.zID = test.Zakaznik.zID
+WHERE cena < 1000
+GROUP BY test.Produkt.pID, oznaceni, znacka
+HAVING COUNT(DISTINCT pohlavi) = 1
+
+--select distinct n1.pID, n1.cena, z1.pohlavi
+--from test.Nakup n1
+--join test.Zakaznik z1 on z1.zID = n1.zID
+--where n1.cena < 1000
+
+-- 2.A
+-- Vypište produkty, které pokud byly reklamovány, tak pouze zákazníky registrovanými v roce 2006
+-- Z výsledku odstraòte produkty, které nikdy nebyly koupeny.
+select distinct p.pID, p.oznaceni
+from test.produkt p
+join test.Nakup n on p.pID = n.pID
+where not exists
+(
+	select *
+	from test.nakup n
+	join test.reklamace r on n.nID = r.nID 
+	join test.Zakaznik z on z.zID = n.zID and 
+		(z.rok_registrace != 2006 or z.rok_registrace is null)
+	where n.pID = p.pID
+)
+
+--SELECT p.pID, z.rok_registrace, r.nID
+--FROM test.Zakaznik z
+--join test.Nakup n on z.zID = n.zID
+--join test.Produkt p on n.pID = p.pID
+--left join test.Reklamace r on r.nID = n.nID
+--order by p.pID
+
+-- 2.B
+-- Vypište produkty, které pokud byly reklamovány, tak pouze zákazníky, kteøí si pøejí zasílat reklamu
+select distinct p.pID, p.oznaceni
+from test.produkt p
+join test.Nakup n on p.pID = n.pID
+where not exists
+(
+	select *
+	from test.nakup n
+	join test.reklamace r on n.nID = r.nID and r.cena > 1000
+	join test.Zakaznik z on z.zID = n.zID and 
+		(z.posilat_reklamu = 0 or z.posilat_reklamu is null)
+	where n.pID = p.pID
+)
+
+
+--SELECT p.pID, z.posilat_reklamu, r.nID
+--FROM test.Zakaznik z
+--join test.Nakup n on z.zID = n.zID
+--join test.Produkt p on n.pID = p.pID
+--left join test.Reklamace r on r.nID = n.nID
+--order by p.pID
+
+
+-- 3.A
+-- Pro každý produkt, který nemá uveden rok výroby 2012 vypište: (1) kolikrát byl reklamován za cenu vyšší než 1000 Kè,
+-- (2) kolik rùzných zákazníkù jej kupovalo v roce 2012.
+
+SELECT
+	pID,
+	oznaceni,
+	(
+		SELECT COUNT(*)
+		FROM test.Nakup JOIN test.Reklamace ON test.Nakup.nID = test.Reklamace.nID
+		WHERE test.Nakup.pID = test.Produkt.pID AND test.Reklamace.cena > 1000
+	) AS pocet_reklamaci,
+	(
+		SELECT COUNT(DISTINCT zID)
+		FROM test.Nakup
+		WHERE test.Nakup.pID = test.Produkt.pID AND YEAR(test.Nakup.den) = 2012
+	) AS pocet_zakazniku
+FROM test.Produkt
+WHERE rok_ukonceni_vyroby != 2012 OR rok_ukonceni_vyroby IS NULL
+
+-- 3.B
+-- Pro každý produkt, který nemá uveden rok výroby 2010 vypiste: (1) kolikrát byl reklamován za cenu nižší než 1000 Kè,
+-- (2) kolik rùzných zákazníkù jej kupovalo v roce 2012.
+
+SELECT
+	pID,
+	oznaceni,
+	(
+		SELECT COUNT(*)
+		FROM test.Nakup JOIN test.Reklamace ON test.Nakup.nID = test.Reklamace.nID
+		WHERE test.Nakup.pID = test.Produkt.pID AND test.Reklamace.cena < 1000
+	) AS pocet_reklamaci,
+	(
+		SELECT COUNT(DISTINCT zID)
+		FROM test.Nakup
+		WHERE test.Nakup.pID = test.Produkt.pID AND YEAR(test.Nakup.den) = 2012
+	) AS pocet_zakazniku
+FROM test.Produkt
+WHERE rok_ukonceni_vyroby != 2010 OR rok_ukonceni_vyroby IS NULL
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------ Utery 9:00
+-- 1. Slozitejsi
+-- A. Vypište zákazníky, kteøí vždy reklamovali výrobek znaèky `Whirpool', který koupili.
+-- Nevypisujte zakazniky, kteri nikdy vyrobek znacky whirpool nekoupili
+SELECT distinct z.zID, jmeno
+FROM test.Zakaznik z
+join test.Nakup n on z.zID = n.zID
+JOIN test.Produkt p ON n.pID = p.pID	
+WHERE p.znacka = 'Whirpool' and NOT EXISTS
+(
+	SELECT *
+	FROM test.Nakup n 
+	JOIN test.Produkt p ON n.pID = p.pID	
+	WHERE p.znacka = 'Whirpool' AND n.zID = z.zID and not exists
+	(
+		select *
+		from test.Reklamace r 
+		where n.nID = r.nID
+	)
+)
+
+--SELECT *
+--FROM test.Zakaznik z
+--join test.Nakup n on z.zID = n.zID
+--join test.Produkt p on n.pID = p.pID and p.znacka = 'Whirpool'
+--left join test.Reklamace r on r.nID = n.nID
+--order by z.zID
+
+-- B. Vypište zákazníky, kteøí vždy reklamovali výrobek, který koupili v roce 2013.
+-- Nevypisujte zakazniky, kteri v roce 2013 nic nekoupili.
+SELECT distinct z.zID, jmeno
+FROM test.Zakaznik z
+join test.Nakup n1 on z.zID = n1.zID and year(n1.den) = 2013
+WHERE NOT EXISTS
+(
+	SELECT *
+	FROM test.Nakup n 
+	WHERE Year(n.den) = 2013 AND n.zID = z.zID and not exists
+	(
+		select *
+		from test.Reklamace r 
+		where n.nID = r.nID
+	)
+)
+
+--SELECT *
+--FROM test.Zakaznik z
+--join test.Nakup n on z.zID = n.zID and year(n.den) = 2013
+--left join test.reklamace r on n.nID = r.nID
+--order by z.zID
+
+
+
+--SELECT *
+--FROM test.Zakaznik z
+--join test.Nakup n on z.zID = n.zID and year(n.den) = 2013
+--join test.Produkt p on n.pID = p.pID
+--order by z.zID
+
+
+-- 2. Jednodussi
+-- A. Vypište zákazníky, kteøí vícekrát reklamovali výrobek znaèky `Whirpool' než `Green line'.
+select z.zID, z.jmeno
+from test.Zakaznik z
+where
+(
+	select count(*)
+	from test.Nakup n
+	join test.Reklamace r on n.nID = r.nID
+	join test.Produkt p on n.pID = p.pID
+	where n.zID = z.zID and p.znacka = 'Whirpool'
+) >
+(
+	select count(*)
+	from test.Nakup n
+	join test.Reklamace r on n.nID = r.nID
+	join test.Produkt p on n.pID = p.pID
+	where n.zID = z.zID and p.znacka = 'Green line'
+)
+
+-- B. Vypiste zakazniky, kteri v roce 2013 vzdy kupovali vyrobek, ktery ma rok ukonceni vyroby 2012.
+-- Nevypisujte zakazniky, kteri v roce 2013 nic nekoupili. Pouzijte funkci YEAR pro ziskani roku z atributu Nakup.den.
+SELECT distinct z.zID, z.jmeno
+FROM test.Zakaznik z
+join test.Nakup n on z.zID = n.zID and year(n.den) = 2013
+WHERE NOT EXISTS
+(
+	SELECT *
+	FROM test.Nakup n1
+	JOIN test.Produkt p ON n1.pID = p.pID
+	WHERE (p.rok_ukonceni_vyroby != 2012 or p.rok_ukonceni_vyroby is null) AND 
+		year(n1.den) = 2013  and n1.zID = z.zID
+)
+
+
+
+-- 3. Jednodussi
+-- A. Vypište zákazníky (jejich ID a jméno), kteøí provedli nákup do deseti let od své registrace. Nevypisujte zákazníky, kde rok registrace není uveden.
+-- Pro zjištìní roku nákupu mùžete použít funkci DATEPART.
+SELECT zID, jmeno
+FROM test.Zakaznik
+WHERE rok_registrace IS NOT NULL AND EXISTS
+(
+	SELECT *
+	FROM test.Nakup
+	WHERE test.Nakup.zID = test.Zakaznik.zID AND DATEPART(year, test.Nakup.den) <= test.Zakaznik.rok_registrace + 10
+)
+
+
+-- B. Vypište zákazníky (jejich ID a jméno), kteøí do deseti let od své registrace neprovedli ani jeden nákup. Nevypisujte zákazníky, kde rok registrace není uveden.
+-- Pro zjištìní roku nákupu mùžete použít funkci DATEPART.
+SELECT zID, jmeno
+FROM test.Zakaznik
+WHERE rok_registrace IS NOT NULL AND NOT EXISTS
+(
+	SELECT *
+	FROM test.Nakup
+	WHERE test.Nakup.zID = test.Zakaznik.zID AND DATEPART(year, test.Nakup.den) <= test.Zakaznik.rok_registrace + 10
+)
+
