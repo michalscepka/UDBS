@@ -69,16 +69,13 @@ VALUES ('Michael', 'De Santa', 'M', 500);
 
 -- 12. Pridejte do tabulky 'Letovy_plan' atribut 'id_pilota', ktery bude referencovat
 -- do tabulky 'Pilot' a vytvorte dva letove plany.
-ALTER TABLE Letovy_plan ADD pilot_id INTEGER NULL;
-
+ALTER TABLE Letovy_plan ADD pilot_id INT NOT NULL;
 ALTER TABLE Letovy_plan ADD FOREIGN KEY(pilot_id) REFERENCES Pilot(id)
 
 INSERT INTO Trasa(START, cil, vzdalenost, mezipristani, pocet_pasazeru)
-VALUES ('Praha', 'Londyn', 600, 0, 100);
+VALUES ('Praha', 'Londyn', 1200, 0, 100);
 INSERT INTO Trasa(START, cil, vzdalenost, mezipristani, pocet_pasazeru)
 VALUES ('Londyn', 'New York', 5567, 0, 150);
-
-UPDATE Trasa SET vzdalenost = 1200 WHERE cislo_trasy = 1;
 
 INSERT INTO Letovy_plan(Letadlo_cislo_letadla, Trasa_cislo_trasy, pilot_id)
 VALUES (1, 1, 1);
