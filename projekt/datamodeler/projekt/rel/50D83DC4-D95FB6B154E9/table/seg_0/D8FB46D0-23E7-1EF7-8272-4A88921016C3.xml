@@ -1,0 +1,125 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D8FB46D0-23E7-1EF7-8272-4A88921016C3" name="Jizdenka">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>A50FA9AB-F382-25F0-C07B-724E5C827F26</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="jizdenka_id" id="6250B3E3-F973-FE79-7894-2F58445B5F54">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>9C5F9110-6628-B59C-6571-82793B42BBB4</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Uzivatel_uzivatel_id" id="9A2021C5-B7FF-AF53-159E-67B2B0E4BAAA">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>337C1CF8-DD13-B2F8-C230-228845940674</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="67EEB5CE-78BD-EFBA-492E-790BA0BC4031" referredColumn="88B9AE53-C1D6-0330-1209-E2511C5DC99F"/>
+</associations>
+</Column>
+<Column name="Jizda_jizda_id" id="52567361-7491-A947-AE36-9889C5FAC8D9">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>70A29FE4-B9D6-861E-55E2-7853DA955849</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D55B1790-FF16-0A6E-54F5-3323C896A8F6" referredColumn="68580C30-4BA8-0712-9B3B-FA4023824210"/>
+</associations>
+</Column>
+<Column name="Jizda_Spoj_spoj_id" id="2CB54106-ABB1-8CC0-0964-AF8344F114E0">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>CF973030-B294-2B1F-1D4C-38B2D8A54EB3</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D55B1790-FF16-0A6E-54F5-3323C896A8F6" referredColumn="C2C635F5-6F10-9BF1-4134-F06E85D5A465"/>
+</associations>
+</Column>
+<Column name="Jizda_Spoj_spolecnost_id" id="C81BA08B-7D28-3F2E-FD1D-0B203BF415E3">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>D339F9B2-B812-9C67-B646-3AF83DEAB187</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D55B1790-FF16-0A6E-54F5-3323C896A8F6" referredColumn="DAAFD744-DD7B-6250-9C7D-408BE80329EA"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FFBAF431-1999-8691-75CB-C112FC24C8DF" name="Jizdenka_PK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>0786FE20-C5B5-4893-C39D-481ACCE432DF</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6250B3E3-F973-FE79-7894-2F58445B5F54"/>
+<colUsage columnID="9A2021C5-B7FF-AF53-159E-67B2B0E4BAAA"/>
+<colUsage columnID="52567361-7491-A947-AE36-9889C5FAC8D9"/>
+<colUsage columnID="2CB54106-ABB1-8CC0-0964-AF8344F114E0"/>
+<colUsage columnID="C81BA08B-7D28-3F2E-FD1D-0B203BF415E3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="369B5079-EA2E-179D-AFFD-E2C447881634" name="Jizdenka_Uzivatel_FK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>325B51E9-0283-780B-7DF9-DA32B49C335A</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9A2021C5-B7FF-AF53-159E-67B2B0E4BAAA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BAE6014A-B4B5-D0EB-EEDF-E08BE42330BB" name="Jizdenka_Jizda_FK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>499316BB-639C-E245-172D-20F3F99269E5</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="52567361-7491-A947-AE36-9889C5FAC8D9"/>
+<colUsage columnID="2CB54106-ABB1-8CC0-0964-AF8344F114E0"/>
+<colUsage columnID="C81BA08B-7D28-3F2E-FD1D-0B203BF415E3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

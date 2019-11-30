@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Jizdenka Jizda FK" directorySegmentName="seg_0" id="499316BB-639C-E245-172D-20F3F99269E5">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:47:43 UTC</createdTime>
+<ownerDesignName>projekt</ownerDesignName>
+<engineerTo>
+<item key="50D83DC4-852A-4FB2-04C9-D95FB6B154E9" value="true"/>
+</engineerTo>
+<sourcePk>4D5E93EE-AC4F-6397-4499-CF2270CEED4C</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>B3E4CFFF-52F9-5FE7-D649-6D80E575CA34</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>A50FA9AB-F382-25F0-C07B-724E5C827F26</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

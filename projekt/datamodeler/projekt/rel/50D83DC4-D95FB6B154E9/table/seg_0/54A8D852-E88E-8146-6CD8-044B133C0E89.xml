@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="54A8D852-E88E-8146-6CD8-044B133C0E89" name="Historie_ceny">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 17:55:48 UTC</createdTime>
+<generatorID>10B8702F-830E-613C-72B1-CE649E9C35E1</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<ordsAlias>historizace</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="history_id" id="547B5F03-FD60-8E58-98DD-059C78D8BA70">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 17:55:48 UTC</createdTime>
+<generatorID>9BE2EDD7-7D49-046A-1C24-77DA8514E5C3</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cena" id="73777971-B6B8-51B4-402E-C74F029C3F67">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 17:55:48 UTC</createdTime>
+<generatorID>0D7DF367-36B1-F29E-4093-0081B449FA6C</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="datum" id="F59245D6-A3B2-82E5-EC6C-F8CF025279FD">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 17:55:48 UTC</createdTime>
+<generatorID>EA47E05D-F979-4699-6744-4B0DBD003FF8</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="spoj_id" id="D027FFAA-5FCA-2E18-E4BA-DFCD8F6A6AC9">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 17:55:48 UTC</createdTime>
+<generatorID>5DC82892-C1AF-FCAB-542F-9C3063DC3758</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F26A051F-D97A-CCAF-3604-998B25800A66" referredColumn="3E363A45-C837-4752-408A-56AF35098699"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2DC7430A-F608-FC7E-5D41-4CA7CDC99608" name="Historie_ceny_PK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 17:55:48 UTC</createdTime>
+<generatorID>E07804F0-3626-F008-76D1-F497827F4888</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="547B5F03-FD60-8E58-98DD-059C78D8BA70"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8DC5FE6E-7B47-FDE5-778E-3257FA4B9E2E" name="Historie_ceny_Spoj_FK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 17:55:48 UTC</createdTime>
+<generatorID>CA673F4A-CF98-AD4B-423B-62B9F54AF5A3</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D027FFAA-5FCA-2E18-E4BA-DFCD8F6A6AC9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

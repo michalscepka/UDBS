@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CEA311A7-D3A5-DF37-9E2C-147201B93B0F" name="Stanice">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:51:26 UTC</createdTime>
+<generatorID>7F8144DB-DF12-B536-1080-A861A52AAEE9</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="stanice_id" id="037E936D-15C3-E6CD-2053-C3B40935BE09">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:51:26 UTC</createdTime>
+<generatorID>BCAACC50-CBBD-2DB6-C046-E06CF8E4066B</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazev" id="A535E95A-58A5-105F-C7E7-18CC2D1DBC57">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:51:26 UTC</createdTime>
+<generatorID>2DCE6CB7-F667-F9AD-1B5D-6DC72B908074</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Mesto_mesto_id" id="29BCCF37-612B-B64F-E510-ADC94DBE7BBE">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:51:26 UTC</createdTime>
+<generatorID>3066456D-3883-7955-65E1-41A7F1E7EFE8</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="494B4F4D-7D4F-03BD-C619-A2491A3D72F0" referredColumn="D325A8E4-50E3-4288-7110-8A7DF90CA9CF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0B0D306B-8F2A-A226-266E-2F996F08C4B2" name="Stanice_PK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:51:26 UTC</createdTime>
+<generatorID>6E75CB2F-78D9-458A-965A-96C8408521C7</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="037E936D-15C3-E6CD-2053-C3B40935BE09"/>
+<colUsage columnID="29BCCF37-612B-B64F-E510-ADC94DBE7BBE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="786B670B-7765-672C-9995-DCD84654A7DE" name="Stanice_Mesto_FK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:51:26 UTC</createdTime>
+<generatorID>D6F6D820-7FE1-D687-720C-EA3EC8CD933F</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="29BCCF37-612B-B64F-E510-ADC94DBE7BBE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

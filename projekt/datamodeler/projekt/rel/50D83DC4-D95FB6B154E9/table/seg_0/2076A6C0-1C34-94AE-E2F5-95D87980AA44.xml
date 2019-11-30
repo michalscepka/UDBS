@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2076A6C0-1C34-94AE-E2F5-95D87980AA44" name="Jizdenka">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:51:26 UTC</createdTime>
+<generatorID>A50FA9AB-F382-25F0-C07B-724E5C827F26</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="jizdenka_id" id="5539F071-7FED-A1C1-8736-67D0F33A4A60">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:51:26 UTC</createdTime>
+<generatorID>9C5F9110-6628-B59C-6571-82793B42BBB4</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Uzivatel_uzivatel_id" id="BD10EEB0-7796-6124-42F8-3C690BE5441F">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:51:26 UTC</createdTime>
+<generatorID>337C1CF8-DD13-B2F8-C230-228845940674</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="52C515D5-D01A-4721-A211-253D1274C4AB" referredColumn="AE7B7FB0-291D-5100-1044-5D59D71A26B1"/>
+</associations>
+</Column>
+<Column name="Jizda_jizda_id" id="7F4D5B1F-3279-30C7-761C-DBD4976914EA">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:51:26 UTC</createdTime>
+<generatorID>70A29FE4-B9D6-861E-55E2-7853DA955849</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2E49B644-1F4D-909B-070A-3D190CFB13D3" referredColumn="2DF992E9-C9C4-E9EC-92F7-042BBF73C5F4"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9BE19448-5357-CBE4-C844-CD682BE97031" name="Jizdenka_PK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:51:26 UTC</createdTime>
+<generatorID>0786FE20-C5B5-4893-C39D-481ACCE432DF</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5539F071-7FED-A1C1-8736-67D0F33A4A60"/>
+<colUsage columnID="BD10EEB0-7796-6124-42F8-3C690BE5441F"/>
+<colUsage columnID="7F4D5B1F-3279-30C7-761C-DBD4976914EA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D16DFD33-8B8A-9F4D-1B0D-54A8C67FEBE5" name="Jizdenka_Uzivatel_FK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:51:26 UTC</createdTime>
+<generatorID>325B51E9-0283-780B-7DF9-DA32B49C335A</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BD10EEB0-7796-6124-42F8-3C690BE5441F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="226213E6-F1FD-ACE1-0D7A-3C43908A11C0" name="Jizdenka_Jizda_FK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:51:26 UTC</createdTime>
+<generatorID>499316BB-639C-E245-172D-20F3F99269E5</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7F4D5B1F-3279-30C7-761C-DBD4976914EA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

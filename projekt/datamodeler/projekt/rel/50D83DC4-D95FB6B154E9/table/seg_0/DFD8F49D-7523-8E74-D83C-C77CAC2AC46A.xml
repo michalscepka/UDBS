@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DFD8F49D-7523-8E74-D83C-C77CAC2AC46A" name="Spoj">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-30 14:41:11 UTC</createdTime>
+<generatorID>0948030A-869C-BD20-A933-A9B273F2BB71</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="spoj_id" id="8E02A14C-F8BF-A1ED-2B63-5C46BBDC3C5A">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-30 14:41:11 UTC</createdTime>
+<generatorID>071EA10E-565E-5FD4-E451-5E028453E540</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazev" id="13C0FBB1-E22C-4B2C-9492-E198F5C6F1CE">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-30 14:41:11 UTC</createdTime>
+<generatorID>01183D94-7F10-F9CD-B034-5DAD9735C77C</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cena_za_km" id="E00F0C75-773F-CC82-A4A8-0E09D513B2C5">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-30 14:41:11 UTC</createdTime>
+<generatorID>4561F4DC-9A7B-0980-BBB8-B87D6A57BAA8</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="kapacita_mist" id="EBAEE738-4317-04A7-9107-9AA3CA63519D">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-30 14:41:11 UTC</createdTime>
+<generatorID>B70330EE-1B9B-89F9-17AB-5D3A109F687E</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="trida" id="5B0376AB-53E5-7A7E-AEAB-0D9961390F91">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-30 14:41:11 UTC</createdTime>
+<generatorID>5FEF0AD5-9355-C93F-4898-516850D99369</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pravidelny" id="2D1CDAF9-5254-260A-B7C0-8441AC042296">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-30 14:41:11 UTC</createdTime>
+<generatorID>622F9DE2-5E9F-ED54-4E26-BE9A4AC90178</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="spolecnost_id" id="C8372147-29DB-F573-3D25-A10256CB1266">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-30 14:41:11 UTC</createdTime>
+<generatorID>DBF8B8D1-D1C5-292D-0BA8-E89FEFDBAD95</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1256F5E7-B752-73BA-CD38-21B18B68AE23" referredColumn="AE49866F-1DD2-1905-5060-FDFB10DDB26B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="98FB46AC-4132-16DD-4A3D-453BD879DF68" name="Spoj_PK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-30 14:41:11 UTC</createdTime>
+<generatorID>4798AA37-86DE-567C-2124-A0F7520CDA6A</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8E02A14C-F8BF-A1ED-2B63-5C46BBDC3C5A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3DE185B3-2E57-12C3-0709-50CFE2315BEE" name="Spoj_Spolecnost_FK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-30 14:41:11 UTC</createdTime>
+<generatorID>BB09E900-72D6-CF77-9C27-61EF8F9548E4</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C8372147-29DB-F573-3D25-A10256CB1266"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

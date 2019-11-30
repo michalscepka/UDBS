@@ -38,6 +38,21 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="mesto_id" id="3066456D-3883-7955-65E1-41A7F1E7EFE8">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:30:35 UTC</createdTime>
+<generatorID>D6F6D820-7FE1-D687-720C-EA3EC8CD933F</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<engineerTo>
+<item key="50D83DC4-852A-4FB2-04C9-D95FB6B154E9" value="true"/>
+</engineerTo>
+<referedAttribute>8D209FD7-1EA1-F490-5EA9-627A690ABA23</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
@@ -46,8 +61,9 @@
 <createdBy>Michal</createdBy>
 <createdTime>2019-11-27 13:26:40 UTC</createdTime>
 <ownerDesignName>projekt</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="50D83DC4-852A-4FB2-04C9-D95FB6B154E9" value="true"/>
+<item key="50D83DC4-852A-4FB2-04C9-D95FB6B154E9" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

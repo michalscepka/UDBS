@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3BD6D478-D37B-9C0D-BC0B-0791BAD8B6C6" name="Prijezd">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>90D052AC-0870-6E77-6418-0919A60D2B4D</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cas" id="FD1E3441-D560-BFDB-BBF5-4473FF05FDC2">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>00B06AB7-0B98-C0F6-7799-65BC2633DAC3</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="poradi" id="718FF801-0605-F16E-806A-645AC28C5E0B">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>50AF15FF-500E-51E3-922A-D6D73D2BE6B2</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Stanice_stanice_id" id="F5C68905-01E1-78E1-C539-E699020CC638">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>26C80B2C-1260-AE33-4DF6-B342709E3823</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1A2A142C-C410-FDD6-9DB0-9A36646ACFCE" referredColumn="FF42D012-FD4A-39D5-6447-105E99BB70E7"/>
+</associations>
+</Column>
+<Column name="Stanice_Mesto_mesto_id" id="9878030A-5739-CD37-E601-7C00A40E52E6">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>C48C7B5E-F92E-7B8F-F600-AF628D2CD7F5</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1A2A142C-C410-FDD6-9DB0-9A36646ACFCE" referredColumn="C8DEE63E-5FB4-80CA-799C-5BDDBEA4EBB1"/>
+</associations>
+</Column>
+<Column name="Spoj_spoj_id" id="D5F70813-7B84-8B87-A5EF-367E6B89BAF9">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>AF364C13-0F99-A7C5-5956-5A83B3690D6F</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="82A37C74-01BF-A42B-781F-3EC7BB76DDBA" referredColumn="0C4FB663-61CB-0CD0-5086-504AC3657D13"/>
+</associations>
+</Column>
+<Column name="Spoj_Spolecnost_spolecnost_id" id="26902A3D-057F-242B-D680-9ACE98C87490">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>B7201CFE-59A1-FF31-226A-1B6280577041</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="82A37C74-01BF-A42B-781F-3EC7BB76DDBA" referredColumn="8499236E-E966-9ACB-7CEE-ADF6C4249770"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5702D7F0-0619-5C99-41A8-ECBD81A4CFB9" name="Prijezd_PK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>6C794C5F-FEA5-F429-B79D-B56674FF11F2</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F5C68905-01E1-78E1-C539-E699020CC638"/>
+<colUsage columnID="9878030A-5739-CD37-E601-7C00A40E52E6"/>
+<colUsage columnID="D5F70813-7B84-8B87-A5EF-367E6B89BAF9"/>
+<colUsage columnID="26902A3D-057F-242B-D680-9ACE98C87490"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B0F820A3-7432-EEBC-F2B4-E5E386E40F30" name="Prijezd_Stanice_FK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>13AAF427-6E30-BD5A-78EE-C8B2193C3135</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F5C68905-01E1-78E1-C539-E699020CC638"/>
+<colUsage columnID="9878030A-5739-CD37-E601-7C00A40E52E6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B40EBFD6-AE2F-FBB0-D34F-5512444352B1" name="Prijezd_Spoj_FK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>9EC1EB99-AC82-8BCD-2598-8B370F307E04</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D5F70813-7B84-8B87-A5EF-367E6B89BAF9"/>
+<colUsage columnID="26902A3D-057F-242B-D680-9ACE98C87490"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

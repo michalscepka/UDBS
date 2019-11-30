@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A44DABB4-1ECD-AC5D-5DD2-4E5108FB7AC2" name="Jizda">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>B3E4CFFF-52F9-5FE7-D649-6D80E575CA34</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="jizda_id" id="68580C30-4BA8-0712-9B3B-FA4023824210">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>F9AC6283-C4D7-70B7-FF07-C522B250106B</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="datum" id="FB554812-49BC-BBE3-6712-BBD11D813893">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>0257894D-2CCD-03B7-32B3-EE9CABADD134</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Spoj_spoj_id" id="C2C635F5-6F10-9BF1-4134-F06E85D5A465">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>092468D2-207F-D3AC-2327-7AEB8F49EC18</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C9394060-7E3F-65CA-5416-B4D844F43F18" referredColumn="0C4FB663-61CB-0CD0-5086-504AC3657D13"/>
+</associations>
+</Column>
+<Column name="Spoj_spolecnost_id" id="DAAFD744-DD7B-6250-9C7D-408BE80329EA">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>F83358B9-19FC-2B81-201F-821E288B883F</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C9394060-7E3F-65CA-5416-B4D844F43F18" referredColumn="8499236E-E966-9ACB-7CEE-ADF6C4249770"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="22ACD4B4-BCD2-7FAC-4D3A-B6F9DEB0E1CC" name="Jizda_PK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>4D5E93EE-AC4F-6397-4499-CF2270CEED4C</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="68580C30-4BA8-0712-9B3B-FA4023824210"/>
+<colUsage columnID="C2C635F5-6F10-9BF1-4134-F06E85D5A465"/>
+<colUsage columnID="DAAFD744-DD7B-6250-9C7D-408BE80329EA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="45FADD82-342D-F5F1-7FB4-5534BD7D561A" name="Jizda_Spoj_FK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:11:12 UTC</createdTime>
+<generatorID>D081B4CD-85D0-A4B1-0DE6-0923DA172F5D</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C2C635F5-6F10-9BF1-4134-F06E85D5A465"/>
+<colUsage columnID="DAAFD744-DD7B-6250-9C7D-408BE80329EA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

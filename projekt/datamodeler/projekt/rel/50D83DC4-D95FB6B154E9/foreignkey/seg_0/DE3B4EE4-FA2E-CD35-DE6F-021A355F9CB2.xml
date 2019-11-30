@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DE3B4EE4-FA2E-CD35-DE6F-021A355F9CB2" containerWithKeyObject="DC4DCFD2-697B-0532-3918-8C36ECB2ECA9" localFKIndex="2FE1552A-81B5-E7AF-DC0F-A85FC0B2384B" name="Jizda_Spoj_FK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-30 15:12:42 UTC</createdTime>
+<generatorID>D081B4CD-85D0-A4B1-0DE6-0923DA172F5D</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<referredTableLongName>Spoj</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C9E7F2B6-74A0-8C38-5F1E-C8A9E813122E</referredTableID>
+<keyObject>8B66D002-7B3E-0E2F-BD87-8FAC13D426FC</keyObject>
+<referredKeyID>8B66D002-7B3E-0E2F-BD87-8FAC13D426FC</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>spoj_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

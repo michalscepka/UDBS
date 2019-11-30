@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="81F97DDC-D109-55D2-64CE-578411A14CA1" name="Mesto">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-30 14:35:34 UTC</createdTime>
+<generatorID>99FDDF62-5320-909E-5CAE-9A99FF51A341</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="mesto_id" id="60DFF6EC-5363-50AB-22A1-66A78C7ED179">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-30 14:35:34 UTC</createdTime>
+<generatorID>8D209FD7-1EA1-F490-5EA9-627A690ABA23</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazev" id="F89BF0F6-8749-4B59-74BA-F3E77CB7E32E">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-30 14:35:34 UTC</createdTime>
+<generatorID>DA9256D3-5700-4258-1B12-85E8D644559F</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="01B3D93B-6CE6-266B-E29E-4C650FC29172" name="Mesto_PK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-30 14:35:34 UTC</createdTime>
+<generatorID>1B5D62E7-3A0E-6818-4B46-D781BB403AE3</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="60DFF6EC-5363-50AB-22A1-66A78C7ED179"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

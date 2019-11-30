@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A50FA9AB-F382-25F0-C07B-724E5C827F26" name="Jizdenka">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:46:24 UTC</createdTime>
+<ownerDesignName>projekt</ownerDesignName>
+<engineerTo>
+<item key="50D83DC4-852A-4FB2-04C9-D95FB6B154E9" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="jizdenka_id" id="9C5F9110-6628-B59C-6571-82793B42BBB4">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:46:30 UTC</createdTime>
+<ownerDesignName>projekt</ownerDesignName>
+<engineerTo>
+<item key="50D83DC4-852A-4FB2-04C9-D95FB6B154E9" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="uzivatel_id" id="337C1CF8-DD13-B2F8-C230-228845940674">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:47:30 UTC</createdTime>
+<generatorID>325B51E9-0283-780B-7DF9-DA32B49C335A</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<engineerTo>
+<item key="50D83DC4-852A-4FB2-04C9-D95FB6B154E9" value="true"/>
+</engineerTo>
+<referedAttribute>947DDEBE-1C98-622E-27CC-BEECB4864070</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="jizda_id" id="70A29FE4-B9D6-861E-55E2-7853DA955849">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:47:43 UTC</createdTime>
+<generatorID>499316BB-639C-E245-172D-20F3F99269E5</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<engineerTo>
+<item key="50D83DC4-852A-4FB2-04C9-D95FB6B154E9" value="true"/>
+</engineerTo>
+<referedAttribute>F9AC6283-C4D7-70B7-FF07-C522B250106B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="stanice_id_start" id="0BA24E2C-C810-B582-B7A3-A4BD0E33C077">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:49:26 UTC</createdTime>
+<generatorID>99E7F1DD-D735-79C5-6703-C95CA0876936</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<engineerTo>
+<item key="50D83DC4-852A-4FB2-04C9-D95FB6B154E9" value="true"/>
+</engineerTo>
+<referedAttribute>BCAACC50-CBBD-2DB6-C046-E06CF8E4066B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="stanice_id_cil" id="282D8CA8-94D9-4A95-0D14-89DE72280B0B">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 10:49:31 UTC</createdTime>
+<generatorID>83547A8E-18F0-62BB-E876-4118F3B489D9</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<engineerTo>
+<item key="50D83DC4-852A-4FB2-04C9-D95FB6B154E9" value="true"/>
+</engineerTo>
+<referedAttribute>BCAACC50-CBBD-2DB6-C046-E06CF8E4066B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cena" id="7D4573C3-1692-6920-D47A-A42BBF781CCD">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 23:57:10 UTC</createdTime>
+<ownerDesignName>projekt</ownerDesignName>
+<engineerTo>
+<item key="50D83DC4-852A-4FB2-04C9-D95FB6B154E9" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="0786FE20-C5B5-4893-C39D-481ACCE432DF" name="Jizdenka PK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-27 13:46:39 UTC</createdTime>
+<ownerDesignName>projekt</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="50D83DC4-852A-4FB2-04C9-D95FB6B154E9" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9C5F9110-6628-B59C-6571-82793B42BBB4</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

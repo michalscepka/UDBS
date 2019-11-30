@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7BDC7BED-487A-4713-6FD0-8BA528FAB21E" name="Jizda">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-29 10:07:36 UTC</createdTime>
+<generatorID>B3E4CFFF-52F9-5FE7-D649-6D80E575CA34</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="jizda_id" id="2BD0ABEB-3B5E-1EC5-B997-EEDC290DA970">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-29 10:07:36 UTC</createdTime>
+<generatorID>F9AC6283-C4D7-70B7-FF07-C522B250106B</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="datum" id="5DA5F8E9-58AF-B7C0-6A08-C3B6335A1D84">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-29 10:07:36 UTC</createdTime>
+<generatorID>0257894D-2CCD-03B7-32B3-EE9CABADD134</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="spoj_id" id="00B3945F-238B-C0C0-8812-E85B57F6C118">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-29 10:07:36 UTC</createdTime>
+<generatorID>092468D2-207F-D3AC-2327-7AEB8F49EC18</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B8084657-4573-50A5-9BB3-647E93B78063" referredColumn="578A12A2-F53C-7DBA-67A5-3662D4D2FE3F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AEB2E178-E59D-2D2C-C8C6-3B3264095636" name="Jizda_PK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-29 10:07:36 UTC</createdTime>
+<generatorID>4D5E93EE-AC4F-6397-4499-CF2270CEED4C</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2BD0ABEB-3B5E-1EC5-B997-EEDC290DA970"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CF7F3620-8FF2-F869-D36C-B4187E799558" name="Jizda_Spoj_FK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-29 10:07:36 UTC</createdTime>
+<generatorID>D081B4CD-85D0-A4B1-0DE6-0923DA172F5D</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="00B3945F-238B-C0C0-8812-E85B57F6C118"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

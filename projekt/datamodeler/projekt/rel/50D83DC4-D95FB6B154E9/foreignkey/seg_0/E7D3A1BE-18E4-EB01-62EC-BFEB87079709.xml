@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E7D3A1BE-18E4-EB01-62EC-BFEB87079709" containerWithKeyObject="1E3A5888-44AC-59FC-2A3B-B0C67B62F484" localFKIndex="4BED4AAB-3D65-51D1-9C53-BA22BA7B5497" name="Historie_ceny_Spoj_FK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-29 12:41:41 UTC</createdTime>
+<generatorID>CA673F4A-CF98-AD4B-423B-62B9F54AF5A3</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<referredTableLongName>Spoj</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>5F5BD35E-F8DD-1025-0594-ADC49B228CDE</referredTableID>
+<keyObject>45E72D18-39F6-9C9D-83A4-46DD4A37257E</keyObject>
+<referredKeyID>45E72D18-39F6-9C9D-83A4-46DD4A37257E</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>spoj_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

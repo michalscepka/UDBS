@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="30FAE9C0-5027-4BB9-763F-E7C8C5FB0951" name="Prijezd">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 17:55:48 UTC</createdTime>
+<generatorID>90D052AC-0870-6E77-6418-0919A60D2B4D</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="stanice_id" id="A1223073-FF93-A62B-EDBA-EE72C6C27666">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 17:55:48 UTC</createdTime>
+<generatorID>26C80B2C-1260-AE33-4DF6-B342709E3823</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="72CB6855-68C8-B0A1-D882-5436C141D962" referredColumn="8720D927-4BC5-2CC4-7311-10BBF8755668"/>
+</associations>
+</Column>
+<Column name="spoj_id" id="8E0C6708-0CF6-E46D-2C8A-DFA94DCAD54D">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 17:55:48 UTC</createdTime>
+<generatorID>AF364C13-0F99-A7C5-5956-5A83B3690D6F</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="827C949E-7B2D-A25A-3EE2-430E2550B4A9" referredColumn="3E363A45-C837-4752-408A-56AF35098699"/>
+</associations>
+</Column>
+<Column name="cas" id="5FD4E26E-6F74-19E8-7990-D9A10A048D93">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 17:55:48 UTC</createdTime>
+<generatorID>00B06AB7-0B98-C0F6-7799-65BC2633DAC3</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT014</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="poradi" id="41EBCBFB-0D74-9788-BC38-123D1E85E556">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 17:55:48 UTC</createdTime>
+<generatorID>50AF15FF-500E-51E3-922A-D6D73D2BE6B2</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E3D5E439-7F61-48F0-3401-FEA7C0B75324" name="Prijezd_PK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 17:55:48 UTC</createdTime>
+<generatorID>6C794C5F-FEA5-F429-B79D-B56674FF11F2</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A1223073-FF93-A62B-EDBA-EE72C6C27666"/>
+<colUsage columnID="8E0C6708-0CF6-E46D-2C8A-DFA94DCAD54D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4F9CC210-5ABB-8CD1-CC8A-AAA3F90FA62A" name="Prijezd_Stanice_FK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 17:55:48 UTC</createdTime>
+<generatorID>13AAF427-6E30-BD5A-78EE-C8B2193C3135</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A1223073-FF93-A62B-EDBA-EE72C6C27666"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0B34FE06-A58A-4916-AA6C-B8D59F7FF5A9" name="Prijezd_Spoj_FK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-28 17:55:48 UTC</createdTime>
+<generatorID>9EC1EB99-AC82-8BCD-2598-8B370F307E04</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8E0C6708-0CF6-E46D-2C8A-DFA94DCAD54D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

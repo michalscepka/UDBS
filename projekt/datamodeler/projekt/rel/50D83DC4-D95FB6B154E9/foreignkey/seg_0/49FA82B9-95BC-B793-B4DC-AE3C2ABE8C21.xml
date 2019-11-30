@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="49FA82B9-95BC-B793-B4DC-AE3C2ABE8C21" containerWithKeyObject="34DF345A-76E2-4BB4-3D6C-9D4AEC6494A6" localFKIndex="31CF5717-3100-0819-F517-1373D91C77DB" name="Jizdenka_Stanice_FK">
+<createdBy>Michal</createdBy>
+<createdTime>2019-11-29 12:41:41 UTC</createdTime>
+<generatorID>99E7F1DD-D735-79C5-6703-C95CA0876936</generatorID>
+<ownerDesignName>projekt</ownerDesignName>
+<referredTableLongName>Stanice</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>7D3A551B-5F66-4F6E-1490-B2D06B5A9206</referredTableID>
+<keyObject>49B4E2CB-2A62-5727-0F9E-AED3A9E6FCB3</keyObject>
+<referredKeyID>49B4E2CB-2A62-5727-0F9E-AED3A9E6FCB3</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>stanice_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
