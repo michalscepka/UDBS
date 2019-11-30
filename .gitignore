@@ -1,9 +1,9 @@
 #*.pdf
-.jpg
-.docx
-projekt/datamodeler/
-projekt/.png
-projekt/.pdf
+*.jpg
+*.docx
+projekt/datamodeler/*
+projekt/*.png
+projekt/*.pdf
 
 # Prerequisites
 *.d
