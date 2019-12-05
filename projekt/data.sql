@@ -132,17 +132,84 @@ SELECT * FROM prijezd
 
 INSERT INTO jizda (datum, spoj_id)
 VALUES ('20191129', 1)
+INSERT INTO jizda (datum, spoj_id)
+VALUES ('20191129', 2)
 
 SELECT * FROM jizda
 
 INSERT INTO jizdenka (uzivatel_id, jizda_id, stanice_id_start, stanice_id_cil, cena)
-VALUES (1, 1, 3, 13, 0)
+VALUES (1, 1, 3, 13, (
+	SELECT ((
+		SELECT vzdalenost
+		FROM stanice
+			JOIN prijezd ON stanice.stanice_id = prijezd.stanice_id
+			JOIN spoj ON prijezd.spoj_id = spoj.spoj_id
+			JOIN jizda ON spoj.spoj_id = jizda.spoj_id
+		WHERE prijezd.stanice_id = 13 AND jizda.jizda_id = 1
+		) - (
+		SELECT vzdalenost
+		FROM stanice
+			JOIN prijezd ON stanice.stanice_id = prijezd.stanice_id
+			JOIN spoj ON prijezd.spoj_id = spoj.spoj_id
+			JOIN jizda ON spoj.spoj_id = jizda.spoj_id
+		WHERE prijezd.stanice_id = 3 AND jizda.jizda_id = 1
+		)) * (
+		SELECT cena_za_km
+		FROM spoj
+			JOIN jizda ON spoj.spoj_id = jizda.spoj_id
+		WHERE jizda.jizda_id = 1
+		)
+	)
+)
 INSERT INTO jizdenka (uzivatel_id, jizda_id, stanice_id_start, stanice_id_cil, cena)
-VALUES (1, 1, 1, 13, 0)
+VALUES (1, 1, 1, 13, (
+	SELECT ((
+		SELECT vzdalenost
+		FROM prijezd
+			JOIN spoj ON prijezd.spoj_id = spoj.spoj_id
+			JOIN jizda ON spoj.spoj_id = jizda.spoj_id
+		WHERE prijezd.stanice_id = 13 AND jizda.jizda_id = 1
+		) - (
+		SELECT vzdalenost
+		FROM prijezd
+			JOIN spoj ON prijezd.spoj_id = spoj.spoj_id
+			JOIN jizda ON spoj.spoj_id = jizda.spoj_id
+		WHERE prijezd.stanice_id = 1 AND jizda.jizda_id = 1
+		)) * (
+		SELECT cena_za_km
+		FROM spoj
+			JOIN jizda ON spoj.spoj_id = jizda.spoj_id
+		WHERE jizda.jizda_id = 1
+		)
+	)
+)
+INSERT INTO jizdenka (uzivatel_id, jizda_id, stanice_id_start, stanice_id_cil, cena)
+VALUES (1, 2, 3, 13, (
+	SELECT ((
+		SELECT vzdalenost
+		FROM prijezd
+			JOIN spoj ON prijezd.spoj_id = spoj.spoj_id
+			JOIN jizda ON spoj.spoj_id = jizda.spoj_id
+		WHERE prijezd.stanice_id = 13 AND jizda.jizda_id = 2
+		) - (
+		SELECT vzdalenost
+		FROM prijezd
+			JOIN spoj ON prijezd.spoj_id = spoj.spoj_id
+			JOIN jizda ON spoj.spoj_id = jizda.spoj_id
+		WHERE prijezd.stanice_id = 3 AND jizda.jizda_id = 2
+		)) * (
+		SELECT cena_za_km
+		FROM spoj
+			JOIN jizda ON spoj.spoj_id = jizda.spoj_id
+		WHERE jizda.jizda_id = 2
+		)
+	)
+)
 
 SELECT * FROM jizdenka
 
-UPDATE jizdenka
+
+/*UPDATE jizdenka
 SET cena = (
 	((
 	SELECT vzdalenost
@@ -166,20 +233,4 @@ SET cena = (
 )
 WHERE jizdenka_id = 1
 
-SELECT * FROM jizdenka
-
-
-
-
-
-
-
-
-
-
-
-
-
-UPDATE jizdenka
-SET cena = 14
-WHERE jizdenka_id = 1
+SELECT * FROM jizdenka*/
