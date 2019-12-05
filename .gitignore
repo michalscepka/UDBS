@@ -1,6 +1,7 @@
 #*.pdf
 *.jpg
 *.docx
+projekt/datamodeler
 
 # Prerequisites
 *.d
