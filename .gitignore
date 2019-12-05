@@ -1,7 +1,6 @@
 #*.pdf
 *.jpg
 *.docx
-projekt/
 
 # Prerequisites
 *.d
@@ -35,7 +34,3 @@ projekt/
 *.exe
 *.out
 *.app
-
-projekt/Specifikace zadání SCE0007.docx
-projekt/Specifikace zadání SCE0007.pdf
-projekt/datamodeler/*
