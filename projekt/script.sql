@@ -34,7 +34,7 @@ CREATE TABLE mesto (
 GO
 
 CREATE TABLE prijezd (
-    stanice_id   INTEGER NOT NULL,  --DORESIT
+    stanice_id   INTEGER NOT NULL,
     spoj_id      INTEGER NOT NULL,
     cas          time NOT NULL,
     poradi       INTEGER NOT NULL,
@@ -45,10 +45,10 @@ GO
 
 CREATE TABLE spoj (
     spoj_id         INTEGER PRIMARY KEY IDENTITY,
-    nazev           VARCHAR(10) NOT NULL,
+    nazev           VARCHAR(20) NOT NULL,
     cena_za_km      INTEGER NOT NULL,
     kapacita_mist   INTEGER NOT NULL,
-    pravidelny      VARCHAR(10) NOT NULL,
+    pravidelny      VARCHAR(15) NOT NULL,
     spolecnost_id   INTEGER NOT NULL
 )
 
