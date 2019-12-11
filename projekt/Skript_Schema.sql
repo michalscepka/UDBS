@@ -48,7 +48,7 @@ CREATE TABLE spoj (
     nazev           VARCHAR(20) NOT NULL,
     cena_za_km      INTEGER NOT NULL,
     kapacita_mist   INTEGER NOT NULL,
-    pravidelny      VARCHAR(15) NOT NULL,
+    pravidelny      bit NOT NULL,
     spolecnost_id   INTEGER NOT NULL
 )
 
@@ -75,7 +75,7 @@ CREATE TABLE uzivatel (
     jmeno               VARCHAR(20) NOT NULL,
     prijmeni            VARCHAR(20) NOT NULL,
     email               VARCHAR(30) NOT NULL,
-    typ                 VARCHAR(10) NOT NULL,
+    typ                 VARCHAR(20) NOT NULL,
     posledni_navsteva   datetime
 )
 
@@ -160,3 +160,9 @@ ON DELETE NO ACTION
     ON UPDATE no action
     
 GO
+
+ALTER TABLE uzivatel ADD CHECK (typ IN('spravce drah', 'vlakova spolecnost', 'zakaznik'));
+
+ALTER TABLE prijezd ADD CHECK (vzdalenost >= 0);
+
+ALTER TABLE spoj ADD CHECK (cena_za_km > 0);

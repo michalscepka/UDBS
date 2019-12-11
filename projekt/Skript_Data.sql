@@ -50,21 +50,26 @@ VALUES ('Ceske Drahy'),
 
 SELECT * FROM spolecnost
 
-INSERT INTO uzivatel (login, jmeno, prijmeni, email, typ)
-VALUES ('honza1', 'Jan', 'Novak', 'jannovak@gmail.com', 'zakaznik'),
-		('janaN', 'Jana', 'Novakova', 'jananovakova@gmail.com', 'zakaznik'),
-		('modrp', 'Petr', 'Modry', 'modrp@gmail.com', 'zakaznik'),
-		('noobmaster69', 'Thor', 'Odinson', 'noobmaster69@gmail.com', 'zakaznik'),
-		('nevim', 'Martin', 'Maly', 'malymartin@gmail.com', 'zakaznik');
+INSERT INTO uzivatel (login, jmeno, prijmeni, email, typ, posledni_navsteva)
+VALUES ('honza1', 'Jan', 'Novak', 'jannovak@gmail.com', 'zakaznik', '2019-12-3 12:30:50'),
+		('janaN', 'Jana', 'Novakova', 'jananovakova@gmail.com', 'zakaznik', '2019-12-2 10:36:52'),
+		('modrp', 'Petr', 'Modry', 'modrp@gmail.com', 'zakaznik', '2019-12-1 22:30:54'),
+		('noobmaster', 'Thor', 'Odinson', 'noobmaster@gmail.com', 'zakaznik', '2019-11-30 23:23:50'),
+		('StarLord', 'Martin', 'Maly', 'malymartin@gmail.com', 'zakaznik', '2019-11-29 11:30:40'),
+		('kral', 'Marek', 'Novak', 'marnov@seznam.cz', 'spravce drah', '2019-12-3 05:30:50'),
+		('Leo', 'Martin', 'Velky', 'leokral@seznam.cz', 'vlakova spolecnost', '2019-12-2 06:30:50'),
+		('regio', 'Martina', 'Velka', 'regio@bing.com', 'vlakova spolecnost', '2019-12-4 08:35:59'),
+		('cesd', 'Jakub', 'Motany', 'mot@gmail.com', 'vlakova spolecnost', '2019-12-5 12:30:58'),
+		('pepa', 'Pepa', 'Jan', 'pepajan@gmail.com', 'zakaznik', NULL);
 
 SELECT * FROM uzivatel
 
 INSERT INTO spoj (nazev, cena_za_km, kapacita_mist, pravidelny, spolecnost_id)
-VALUES ('LE 400', 3, 200, 'pravidelny', 3),
-		('RJ 106', 2, 150, 'pravidelny', 2),
-		('SC 512 Pendolino', 4, 170, 'pravidelny', 1),
-		('RJ 1006', 5, 100, 'nepravidelny', 2),
-		('LE 401', 2, 180, 'pravidelny', 3);
+VALUES ('LE 400', 3, 200, 1, 3),
+		('RJ 106', 2, 150, 1, 2),
+		('SC 512 Pendolino', 4, 170, 1, 1),
+		('RJ 1006', 5, 100, 0, 2),
+		('LE 401', 2, 180, 1, 3);
 
 SELECT * FROM spoj
 
@@ -156,6 +161,17 @@ VALUES ('20191205', 1),
 		('20191207', 5);
 
 SELECT * FROM jizda
+
+INSERT INTO historie_ceny(cena, datum, spoj_id)
+VALUES(10, '20191201', 1),
+		(9, '20191201', 2),
+		(5, '20191202', 3),
+		(9, '20191203', 4),
+		(5, '20191204', 5),
+		(7, '20191202', 1),
+		(1, '20191201', 2);
+
+SELECT * FROM historie_ceny
 
 INSERT INTO jizdenka (uzivatel_id, jizda_id, stanice_id_start, stanice_id_cil, cena)
 VALUES (1, 1, 3, 13, (
@@ -486,30 +502,3 @@ VALUES (1, 1, 3, 13, (
 			));
 
 SELECT * FROM jizdenka
-
-
-/*UPDATE jizdenka
-SET cena = (
-	((
-	SELECT vzdalenost
-	FROM jizdenka
-		JOIN stanice ON jizdenka.stanice_id_cil = stanice.stanice_id
-		JOIN prijezd ON stanice.stanice_id = prijezd.stanice_id
-	WHERE prijezd.stanice_id = jizdenka.stanice_id_cil AND jizdenka.jizdenka_id = 1 AND spoj_id = 1
-	) - (
-	SELECT vzdalenost
-	FROM jizdenka
-		JOIN stanice ON jizdenka.stanice_id_start = stanice.stanice_id
-		JOIN prijezd ON stanice.stanice_id = prijezd.stanice_id
-	WHERE prijezd.stanice_id = jizdenka.stanice_id_start AND jizdenka.jizdenka_id = 1 AND spoj_id = 1
-	)) * (
-	SELECT cena_za_km
-	FROM jizdenka
-		JOIN jizda ON jizdenka.jizda_id = jizda.jizda_id
-		JOIN spoj ON jizda.spoj_id = spoj.spoj_id
-	WHERE jizdenka.jizdenka_id = 1 AND spoj.spoj_id = 1
-	)
-)
-WHERE jizdenka_id = 1
-
-SELECT * FROM jizdenka*/
