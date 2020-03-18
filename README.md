@@ -1,2 +1,2 @@
 # UDBS
-Introduction to Database Systems (PL/SQL) - VŠB
+Introduction to Database Systems (T-SQL) - VŠB
